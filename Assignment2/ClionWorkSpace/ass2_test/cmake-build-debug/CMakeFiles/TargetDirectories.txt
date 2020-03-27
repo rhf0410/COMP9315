@@ -1,0 +1,3 @@
+/cygdrive/d/COMP9315/Assignment2/ClionWorkSpace/ass2_test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/d/COMP9315/Assignment2/ClionWorkSpace/ass2_test/cmake-build-debug/CMakeFiles/ass2_test.dir
+/cygdrive/d/COMP9315/Assignment2/ClionWorkSpace/ass2_test/cmake-build-debug/CMakeFiles/edit_cache.dir

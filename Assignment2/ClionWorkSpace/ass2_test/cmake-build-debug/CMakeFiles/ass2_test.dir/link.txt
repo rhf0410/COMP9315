@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/ass2_test.dir/main.c.o  -o ass2_test.exe -Wl,--out-implib,libass2_test.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

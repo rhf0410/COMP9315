@@ -1,0 +1,45 @@
+ count 
+-------
+     0
+(1 row)
+
+ username | count 
+----------+-------
+(0 rows)
+
+ realname | loggedin 
+----------+----------
+(0 rows)
+
+psql:queries.sql:24: ERROR:  invalid input syntax for email: "x--@abc.com"
+LINE 2: ('x--@abc.com'::EmailAddr, 'Mister X');
+         ^
+psql:queries.sql:26: ERROR:  invalid input syntax for email: "123@abc.com"
+LINE 2: ('123@abc.com'::EmailAddr,'Mister 123');
+         ^
+psql:queries.sql:28: ERROR:  invalid input syntax for email: "!$!$#!@abc.com"
+LINE 2: ('!$!$#!@abc.com'::EmailAddr,'Mister naughty');
+         ^
+psql:queries.sql:30: ERROR:  invalid input syntax for email: "jas@cse"
+LINE 2: ('jas@cse'::EmailAddr,'Mister JAS');
+         ^
+ ?column? 
+----------
+ t
+(1 row)
+
+ ?column? 
+----------
+ t
+(1 row)
+
+ ?column? 
+----------
+ f
+(1 row)
+
+ ?column? 
+----------
+ f
+(1 row)
+

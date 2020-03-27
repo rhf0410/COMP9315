@@ -1,0 +1,37 @@
+char buf[40];
+	char* tuple = malloc(strlen(t)*sizeof(char));
+	strcpy(tuple, t);
+	Count nvals = nattrs(r);
+	char **vals = malloc(nvals*sizeof(char *));
+	assert(vals != NULL);
+	tupleVals(tuple, vals);
+	Bits composite_hashes[40];
+
+	int i;
+	for(i=0;i<nvals;i++){
+		composite_hashes[i] = hash_any((unsigned char *)vals[i],strlen(vals[i]));
+	}
+	Bits hash = 0;
+	ChVecItem *cv = chvec(r);
+	for(i=0;i<MAXCHVEC;i++){
+		Byte a = cv[i].att;
+		Byte b = cv[i].bit;
+
+		if(bitIsSet(composite_hashes[a], b)){
+			hash = setBit(hash, i);
+		}else{
+			hash = unsetBit(hash, i);
+		}
+	}
+
+	bitsString(hash,buf);
+	printf("hash(");
+	for(i=0;i<nvals;i++){
+		if(i == nvals - 1){
+			printf("%s) = %s\n", vals[i], buf);
+		}else{
+			printf("%s,", vals[i]);
+		}
+	}
+	//printf("hash(%s,%s,%s,%s,%s) = %s\n", vals[0], vals[1], vals[2], vals[3], vals[4],  buf);
+	return hash;
